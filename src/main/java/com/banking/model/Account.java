@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor // Lombok will generate a constructor with all arguments
 @NoArgsConstructor  // Lombok will generate a no-argument constructor
 @ToString // Lombok will generate the toString() method
+@Table(name = "account")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +21,7 @@ public class Account {
     private BigDecimal balance;
 
     @ManyToOne
-    @JoinColumn(name = "customer")
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     @JsonBackReference
     private Customer customer;
 

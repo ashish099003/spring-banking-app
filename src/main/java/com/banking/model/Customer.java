@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor // Lombok will generate a constructor with all arguments
 @NoArgsConstructor  // Lombok will generate a no-argument constructor
 @ToString // Lombok will generate the toString() method
+@Table(name = "customer")
 public class Customer {
 
     @Id

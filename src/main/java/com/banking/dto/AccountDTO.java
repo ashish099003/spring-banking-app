@@ -11,11 +11,11 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class AccountDTO {
     private Long id;
     private Long accountNumber;
     private BigDecimal balance;
     private Long customerId;
 }
-
 

@@ -15,11 +15,15 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/h2/**").permitAll()
+                        .requestMatchers("/h2/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/v3/api-docs/**",
+                                "/api/**" ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf
-                        .ignoringRequestMatchers("/h2/**")
+                        .ignoringRequestMatchers("/h2/**", "/v3/api-docs/**", "/swagger-ui/**", "/api/**")
                 )
                 .headers(headers -> headers
                         .frameOptions().sameOrigin()
